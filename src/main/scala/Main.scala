@@ -32,17 +32,10 @@ object Main extends App{
 
   println("How many days older is Bill than Paul?")
 
-  val days = people.find(_.name.startsWith("Bill")).flatMap{ bill =>
-    people.find(_.name.startsWith("Paul")).map{ paul =>
-      Days.daysBetween(bill.dateOfBirth, paul.dateOfBirth).getDays
-    }
-  }.getOrElse(0)
-
+  val days = (for {
+    bill <- people.find(_.name.startsWith("Bill"))
+    paul <- people.find(_.name.startsWith("Paul"))
+  } yield Days.daysBetween(bill.dateOfBirth, paul.dateOfBirth).getDays).getOrElse(0)
   println(days)
-
-
-
-
-
 
 }
