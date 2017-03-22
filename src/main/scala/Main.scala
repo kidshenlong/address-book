@@ -1,8 +1,4 @@
-import java.io.File
-
-import com.github.tototoshi.csv.CSVReader
-import domain.{Gender, Person}
-import org.joda.time.Days
+import domain.Gender
 
 /**
   * Created by Michael on 22/03/2017.
@@ -18,5 +14,13 @@ object Main extends App{
   println("How many males are in the address book?")
 
   println(addressBookChecker.findByGender(gender = Gender.Male).length)
+
+  println("Who is the oldest person in the address book?")
+
+  println(addressBookChecker.findOldest.name)
+
+  println("How many days older is Bill than Paul?")
+
+  println(addressBookChecker.getAgeDifferenceInDays("Bill", "Paul"))
 
 }

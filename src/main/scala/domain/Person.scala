@@ -1,7 +1,7 @@
 package domain
 
-import domain.Gender.Gender
 import com.github.nscala_time.time.Imports._
+import domain.Gender.Gender
 import org.joda.time.format.DateTimeFormat
 
 
