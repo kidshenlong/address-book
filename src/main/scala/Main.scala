@@ -1,3 +1,7 @@
+import java.io.File
+
+import com.github.tototoshi.csv.CSVReader
+
 import scala.io.Source
 
 /**
@@ -11,4 +15,13 @@ object Main extends App{
 
   bufferedSource.close()
 
+  val reader = CSVReader.open(new File("src/main/resources/AddressBook.csv"))
+
+  reader.all().foreach{ line =>
+
+    println(s"Name: ${line(0)} | ${line(1)} | ${line(2)}")
+
+  }
+
+  reader.close()
 }
