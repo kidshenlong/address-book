@@ -1,6 +1,3 @@
-import java.io.File
-
-import com.github.tototoshi.csv.CSVReader
 import domain.Person
 
 /**
