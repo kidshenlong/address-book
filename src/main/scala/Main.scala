@@ -12,7 +12,7 @@ object Main extends App{
 
   val people = reader.all().map{ line =>
     val trimmedLine = line.map(_.trim)
-    Person( name = trimmedLine.head, gender = Gender(trimmedLine(1)), dateOfBirth = trimmedLine(2))
+    Person( name = trimmedLine.head, gender = trimmedLine(1), dateOfBirth = trimmedLine(2))
   }
   reader.close()
 
@@ -23,7 +23,11 @@ object Main extends App{
 
   println("Who is the oldest person in the address book?")
 
+  def max(p1: Person, p2: Person): Person = if(p1.dateOfBirth.isBefore(p2.dateOfBirth)) p1 else p2
 
+  val oldestPerson = people.reduceLeft(max)
+
+  println(oldestPerson.name)
 
 
 }
