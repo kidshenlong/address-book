@@ -1,7 +1,7 @@
 import java.io.File
 
 import com.github.tototoshi.csv.CSVReader
-import domain.{Gender, Person}
+import domain.{AddressBook, Gender, Person}
 import org.joda.time.Days
 
 /**
@@ -17,7 +17,7 @@ object Main extends App{
   }
   reader.close()
 
-  println("How many males are in the address book?")
+  /*println("How many males are in the address book?")
   println(people.collect{
     case p@Person(_, Gender.Male, _) => p
   }.length)
@@ -36,6 +36,8 @@ object Main extends App{
     bill <- people.find(_.name.startsWith("Bill"))
     paul <- people.find(_.name.startsWith("Paul"))
   } yield Days.daysBetween(bill.dateOfBirth, paul.dateOfBirth).getDays).getOrElse(0)
-  println(days)
+  println(days)*/
+
+  val addressBook = new AddressBook(people)
 
 }
