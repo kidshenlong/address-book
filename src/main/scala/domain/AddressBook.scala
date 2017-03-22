@@ -7,7 +7,6 @@ import domain.Gender.Gender
   */
 class AddressBook(people: List[Person]) {
 
-  def findByName(name: String): Person = ???
-  def findByGender(gender: Gender): Person = ???
+  def findByName(name: String): Option[Person] = people.find(_.name.toLowerCase.startsWith(name.toLowerCase))
 
 }
