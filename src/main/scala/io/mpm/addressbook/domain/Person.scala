@@ -1,7 +1,7 @@
-package domain
+package io.mpm.addressbook.domain
 
 import com.github.nscala_time.time.Imports._
-import domain.Gender.Gender
+import io.mpm.addressbook.domain.Gender.Gender
 import org.joda.time.format.DateTimeFormat
 
 

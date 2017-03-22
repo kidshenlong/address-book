@@ -1,5 +1,7 @@
-import domain.Gender.Gender
-import domain.Person
+package io.mpm.addressbook
+
+import io.mpm.addressbook.domain.Gender.Gender
+import io.mpm.addressbook.domain.Person
 import org.joda.time.Days
 
 /**

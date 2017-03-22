@@ -1,7 +1,9 @@
+package io.mpm.addressbook
+
 import java.io.File
 
 import com.github.tototoshi.csv.CSVReader
-import domain.Person
+import io.mpm.addressbook.domain.Person
 
 /**
   * Created by Michael on 22/03/2017.
@@ -15,6 +17,8 @@ class CSVParser{
       val trimmedLine = line.map(_.trim)
       Person( name = trimmedLine.head, gender = trimmedLine(1), dateOfBirth = trimmedLine(2))
     }
+
+    //In a persistent application not calling this could cause issues. But in this instance it should be okay.
     //reader.close()
   }
 

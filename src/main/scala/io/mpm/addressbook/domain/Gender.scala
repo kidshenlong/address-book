@@ -1,4 +1,4 @@
-package domain
+package io.mpm.addressbook.domain
 
 /**
   * Created by Michael on 22/03/2017.

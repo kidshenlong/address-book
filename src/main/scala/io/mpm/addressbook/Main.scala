@@ -1,4 +1,6 @@
-import domain.Gender
+package io.mpm.addressbook
+
+import io.mpm.addressbook.domain.Gender
 
 /**
   * Created by Michael on 22/03/2017.
