@@ -1,7 +1,7 @@
 import java.io.File
 
 import com.github.tototoshi.csv.CSVReader
-import domain.{AddressBook, Gender, Person}
+import domain.{Gender, Person}
 import org.joda.time.Days
 
 /**
@@ -38,7 +38,11 @@ object Main extends App{
   } yield Days.daysBetween(bill.dateOfBirth, paul.dateOfBirth).getDays).getOrElse(0)
   println(days)*/
 
-  val addressBook = new AddressBook()
+  val location = "src/main/resources/AddressBook.csv"
+
+  val addresses = new CSVParser().getEntries(location)
+
+  val addressBook = new AddressBook(addresses)
 
   println("How many males are in the address book?")
 
