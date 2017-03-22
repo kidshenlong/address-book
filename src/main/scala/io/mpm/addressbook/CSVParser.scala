@@ -1,16 +1,8 @@
 package io.mpm.addressbook
 
-import java.io.File
-
-import com.github.tototoshi.csv.CSVReader
 import io.mpm.addressbook.domain.Person
 import io.mpm.addressbook.util.FileHandler
 
-import scala.io.Source
-
-/**
-  * Created by Michael on 22/03/2017.
-  */
 class CSVParser(fileHandler: FileHandler = new FileHandler()){
 
   def getEntries(location: String): List[Person] = {

@@ -1,18 +1,14 @@
 package io.mpm.addressbook
 
-import com.github.tototoshi.csv.CSVReader
 import io.mpm.addressbook.domain.Person
 import io.mpm.addressbook.util.FileHandler
 import org.specs2.mock.Mockito
 import org.specs2.mutable.Specification
 
-/**
-  * Created by Michael on 22/03/2017.
-  */
 class CSVParserSpec extends Specification with Mockito{
 
   "CSVParser" should {
-    "parse csv to case classes" in {
+    "parse a csv to case classes" in {
 
       val fileHandler = mock[FileHandler]
 
@@ -30,6 +26,5 @@ class CSVParserSpec extends Specification with Mockito{
 
     }
   }
-
 
 }
