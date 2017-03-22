@@ -4,22 +4,20 @@ import java.io.File
 
 import com.github.tototoshi.csv.CSVReader
 import io.mpm.addressbook.domain.Person
+import io.mpm.addressbook.util.FileHandler
+
+import scala.io.Source
 
 /**
   * Created by Michael on 22/03/2017.
   */
-class CSVParser{
+class CSVParser(fileHandler: FileHandler = new FileHandler()){
 
-  def getEntries(location: String): List[Person] ={
-    val reader = CSVReader.open(new File(location))
-
-    reader.all().map{ line =>
-      val trimmedLine = line.map(_.trim)
-      Person( name = trimmedLine.head, gender = trimmedLine(1), dateOfBirth = trimmedLine(2))
-    }
-
-    //In a persistent application not calling this could cause issues. But in this instance it should be okay.
-    //reader.close()
+  def getEntries(location: String): List[Person] = {
+    fileHandler.getFile(location).map{ line =>
+      val cols = line.split(",").map(_.trim)
+      Person(cols(0), cols(1), cols(2))
+    }.toList
   }
 
 }
