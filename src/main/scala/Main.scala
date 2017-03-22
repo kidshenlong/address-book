@@ -9,13 +9,13 @@ import org.joda.time.Days
   */
 object Main extends App{
 
-  val reader = CSVReader.open(new File("src/main/resources/AddressBook.csv"))
+  /*val reader = CSVReader.open(new File("src/main/resources/AddressBook.csv"))
 
   val people = reader.all().map{ line =>
     val trimmedLine = line.map(_.trim)
     Person( name = trimmedLine.head, gender = trimmedLine(1), dateOfBirth = trimmedLine(2))
   }
-  reader.close()
+  reader.close()*/
 
   /*println("How many males are in the address book?")
   println(people.collect{
@@ -38,6 +38,16 @@ object Main extends App{
   } yield Days.daysBetween(bill.dateOfBirth, paul.dateOfBirth).getDays).getOrElse(0)
   println(days)*/
 
-  val addressBook = new AddressBook(people)
+  val addressBook = new AddressBook()
+
+  println("How many males are in the address book?")
+
+  println(addressBook.addresses.count(_.gender == Gender.Male))
+
+/*
+  def max(p1: Person, p2: Person): Person = if(p1.dateOfBirth.isBefore(p2.dateOfBirth)) p1 else p2
+
+  addressBook.addresses.reduceLeft(max)
+*/
 
 }
