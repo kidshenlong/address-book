@@ -24,5 +24,10 @@ class AddressBookSpec extends Specification{
       )
       new AddressBook(addresses).addresses.length === 3
     }
+
+    "find" in {
+
+      new AddressBook().findByName("Michael") === None
+    }
   }
 }
