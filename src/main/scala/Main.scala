@@ -2,6 +2,7 @@ import java.io.File
 
 import com.github.tototoshi.csv.CSVReader
 import domain.{Gender, Person}
+import org.joda.time.Days
 
 /**
   * Created by Michael on 22/03/2017.
@@ -28,6 +29,20 @@ object Main extends App{
   val oldestPerson = people.reduceLeft(max)
 
   println(oldestPerson.name)
+
+  println("How many days older is Bill than Paul?")
+
+  val days = people.find(_.name.startsWith("Bill")).flatMap{ bill =>
+    people.find(_.name.startsWith("Paul")).map{ paul =>
+      Days.daysBetween(bill.dateOfBirth, paul.dateOfBirth).getDays
+    }
+  }.getOrElse(0)
+
+  println(days)
+
+
+
+
 
 
 }
